@@ -90,11 +90,15 @@ Outlook Connector	Sends the result directly to target distribution groups.
         
 [Run Excel Script #1]
 
+        ↓
+
+[Run Excel Script #2]
+
    → Filters & Dedupes CHUTEs
    
         ↓
         
-[Run Excel Script #2]
+[Run Excel Script #3]
 
    → Groups by Line 1–8 Matrix
    
@@ -133,9 +137,11 @@ Previously, leads had to:
 ## 📁 Repository Contents
 File	Description
 
-`/scripts/FilterChutes.ts` - First Excel Script that filters and deduplicates CHUTEs.
+`/scripts/getTableData.ts` - Initial Excel Script that retrieves table data.
 
-`/scripts/GroupChutesByLine.ts`	- Second Excel Script that groups CHUTEs by Line 1–8 and returns matrix layout.
+`/scripts/filterTableData.ts` - Second Excel Script that filters and dedupes Chute Lists.
+
+`/scripts/getChutesFromLines.ts` - Final Excel Script that groups CHUTEs by Line 1–8 and returns matrix layout.
 
 `/docs/FlowDiagram.png`	- (Optional) Visual workflow chart.
 
