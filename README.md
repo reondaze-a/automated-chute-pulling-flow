@@ -65,18 +65,25 @@ Power Automate then:
 - Result: Within seconds, the team receives a visual chute summary table — fully automated, human-error free.
 
 ## 🧠 Key Technologies
-Component	Purpose
-Power Automate (Flow)	Orchestrates the entire process: email trigger, file parsing, script calls, and final email output.
-Excel Office Scripts (TypeScript)	Cleans, filters, and transforms the raw chute data into a readable JSON table.
-HTML/CSS (Inline Styling)	Formats the final matrix table for clean email presentation.
-Outlook Connector	Sends the result directly to target distribution groups.
+
+| Component | Purpose |
+|------------|----------|
+| **Power Automate (Flow)** | Orchestrates the entire process — from email trigger, file parsing, and Excel Script execution to the final email dispatch. |
+| **Excel Office Scripts (TypeScript)** | Cleans, filters, and transforms the raw chute data into structured JSON tables, ready for further processing. |
+| **HTML/CSS (Inline Styling)** | Formats the final matrix with gridlines for clear visual separation, ensuring neat email presentation. |
+| **Outlook Connector** | Sends the formatted chute matrix directly to designated pack leaders and distribution groups. |
+
 
 ## 🚀 Impact
 
 ✅ Fully hands-free chute distribution — no manual file handling.
+
 ✅ Data consistency — filters use strict date and status logic.
+
 ✅ Improved speed — processing done automatically every 2 hours.
+
 ✅ Immediate visibility — pack leaders know exactly which lines to deploy resources to.
+
 ✅ Reduced errors — no missed chutes, no duplicate assignments.
 
 ## 🧩 Automation Flow Diagram
@@ -112,7 +119,7 @@ Previously, leads had to:
 
 3. Manually split them by line and re-send to each leader.
 
-4. This automation performs all of that instantly.
+This automation performs all of that *instantly.*
 
 ## 📁 Repository Contents
 File	Description
