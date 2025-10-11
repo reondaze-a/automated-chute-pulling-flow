@@ -79,37 +79,17 @@ Outlook Connector	Sends the result directly to target distribution groups.
 ✅ Immediate visibility — pack leaders know exactly which lines to deploy resources to.
 ✅ Reduced errors — no missed chutes, no duplicate assignments.
 
-## 🧩 Automation Flow Diagram (Conceptual)
-[Incoming Email Attachment]
+## 🧩 Automation Flow Diagram
 
-        ↓
-        
-[Save to SharePoint]
+```mermaid
+flowchart TD
+    A[Incoming Email Attachment] --> B[Save Attachment to SharePoint]
+    B --> C[Run Excel Script #1: Filter & Deduplicate CHUTEs]
+    C --> D[Run Excel Script #2: Group by Line 1–8 Matrix]
+    D --> E[Create HTML Table + Add CSS Styling]
+    E --> F[Send Styled Email to Pack Leaders]
 
-        ↓
-        
-[Run Excel Script #1]
-
-        ↓
-
-[Run Excel Script #2]
-
-   → Filters & Dedupes CHUTEs
-   
-        ↓
-        
-[Run Excel Script #3]
-
-   → Groups by Line 1–8 Matrix
-   
-        ↓
-        
-[Create HTML Table + Add CSS]
-
-        ↓
-        
-[Send Email to Pack Leaders]
-
+```
 
 ## 📸 Example Output (Email)
 | Line 1 | Line 2 | Line 3 | Line 4 | Line 5 | Line 6 | Line 7 | Line 8 |
