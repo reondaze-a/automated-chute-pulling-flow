@@ -134,6 +134,17 @@ File	Description
 
 `/README.md` - Project documentation (this file).
 
+### Extra
+
+JSON Schema (parsing the returned string from the script)
+
+`{
+    "type": "array",
+    "items": {
+        "type": "object"
+    }
+}`
+
 ## 🧑‍💼 Author
 
 Abraham Efraim
