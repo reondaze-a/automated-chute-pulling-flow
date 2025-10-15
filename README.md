@@ -1,4 +1,4 @@
-# 📦 Automated Chute-Pulling Flow (Power Automate + Excel Script)
+# 📦 Automated Chute-Pulling Flow (Power Automate + Excel Script) *Cart.com*
 ## 🔗 Overview
 
 This Power Automate–based solution automatically retrieves chute assignments from scheduled email attachments every 2 hours and transforms them into a neatly formatted matrix table that’s instantly sent to pack leaders.
