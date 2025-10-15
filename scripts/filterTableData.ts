@@ -1,9 +1,12 @@
 function main(
   workbook: ExcelScript.Workbook,
   dataJson: string = "[]",
-  rush: string = "rush",            // "rush" | "standard" | "any"
-  rushColumn: string = "IS Rush?",
-  reqShipDate: string = ""          // "yyyy-MM-dd" from Flow; if empty, fall back to script's "today"
+  rush: string = "rush",            // used for columnEquals mode or when legacy column exists
+  rushColumn: string = "IS Rush?",  // column to inspect (e.g., "Source Code" for CBI)
+  reqShipDate: string = "",         // "yyyy-MM-dd" from Flow; if empty, uses script's today
+  rushDetect: string = "columnEquals", // "columnEquals" | "columnContains"
+  rushSubstring: string = "-EX",        // used only when rushDetect = "columnContains"
+  containsMode: string = "include"
 ) {
   // --- helpers ---
   const msPerDay = 86400000;
@@ -25,22 +28,37 @@ function main(
   // target Excel serial for the requested ship date
   let targetSerial: number;
   if (reqShipDate) {
-    // reqShipDate format: "yyyy-MM-dd"
     const parts = reqShipDate.split("-").map((x) => Number(x));
     const dt = new Date(parts[0], parts[1] - 1, parts[2]);
     targetSerial = Math.floor((dt.getTime() - excelEpoch.getTime()) / msPerDay);
   } else {
-    // fallback to the script's "today" (may differ by timezone!)
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     targetSerial = Math.floor((today.getTime() - excelEpoch.getTime()) / msPerDay);
   }
 
   const wantAny = norm(rush) === "any";
+  const detect: string = norm(rushDetect);      // "columnequals" | "columncontains"
+  const needle: string = norm(rushSubstring);   // e.g., "-ex"
+  const mode: string = norm(containsMode); // include | exclude
 
   // filter
   const filtered = (rows as Array<Record<string, unknown>>).filter((r) => {
-    const isPriorityOk = wantAny || norm(r[rushColumn]) === norm(rush);
+    // Priority check
+    let isPriorityOk = false;
+    if (wantAny) {
+      isPriorityOk = true;
+    } else {
+      const colVal: string = norm(r[rushColumn]);
+
+      if (detect === "columncontains") {
+        const has = needle.length === 0 ? true : colVal.includes(needle);
+        isPriorityOk = (mode === "exclude") ? !has : has;   // ← invert when exclude
+      } else {
+        isPriorityOk = colVal === norm(rush);
+      }
+    }
+
     const cartonOk = norm(r["Carton Status"]) === "00 - printed";
 
     const reqShipRaw = Number(r["Req Ship Date"]);
