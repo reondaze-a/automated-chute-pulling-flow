@@ -2,6 +2,7 @@ function main(
   workbook: ExcelScript.Workbook,
   dataJson: string = "[]",
   rush: string = "rush",            // "rush" | "standard" | "any"
+  rushColumn: string = "IS Rush?",
   reqShipDate: string = ""          // "yyyy-MM-dd" from Flow; if empty, fall back to script's "today"
 ) {
   // --- helpers ---
@@ -39,7 +40,7 @@ function main(
 
   // filter
   const filtered = (rows as Array<Record<string, unknown>>).filter((r) => {
-    const isPriorityOk = wantAny || norm(r["IS Rush?"]) === norm(rush);
+    const isPriorityOk = wantAny || norm(r[rushColumn]) === norm(rush);
     const cartonOk = norm(r["Carton Status"]) === "00 - printed";
 
     const reqShipRaw = Number(r["Req Ship Date"]);
