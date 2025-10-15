@@ -138,13 +138,14 @@ File	Description
 
 JSON Schema (parsing the returned string from the script)
 
-`{
+```json
+{
     "type": "array",
     "items": {
         "type": "object"
     }
-}`
-
+}
+```
 ## 🧑‍💼 Author
 
 Abraham Efraim
