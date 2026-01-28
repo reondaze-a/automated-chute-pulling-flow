@@ -1,4 +1,4 @@
-# 📦 Automated Chute-Pulling Flow (Power Automate + Excel Script) *Cart.com*
+# 📦 Automated Chute-Pulling Flow (Power Automate + Excel Script) *Logistics Environment*
 ## 🔗 Overview
 
 This Power Automate–based solution automatically retrieves chute assignments from scheduled email attachments every 2 hours and transforms them into a neatly formatted matrix table that’s instantly sent to pack leaders.
@@ -149,7 +149,7 @@ JSON Schema (parsing the returned string from the script)
 ## 🧑‍💼 Author
 
 Abraham Efraim
-Automation Developer / Logistics Process Optimization – Cart.com
+Automation Developer / Logistics Process Optimization
 📍 Groveport, Ohio
 
 “This project showcases how process automation can bridge logistics and technology — removing repetitive manual work and enabling real-time visibility for operational teams.”
