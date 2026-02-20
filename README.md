@@ -1,14 +1,14 @@
 # 📦 Automated Chute-Pulling Flow (Power Automate + Excel Script) *Logistics Environment*
 ## 🔗 Overview
 
-This Power Automate–based solution automatically retrieves chute assignments from scheduled email attachments every 2 hours and transforms them into a neatly formatted matrix table that’s instantly sent to pack leaders.
+This Power Automate–based solution automatically retrieves SLA Details from scheduled email attachments every hour and transforms them into a neatly formatted matrix table of chute lists that’s instantly sent to pack leaders.
 
 It eliminates manual work — no more downloading attachments, opening files, filtering for the right CHUTEs, or preparing distribution lists. The system automatically pulls, filters, classifies, and emails the chute list within seconds.
 
 ## ⚙️ How It Works
 ### 1️⃣ Email Trigger
 
-Every 2 hours, the flow scans incoming messages for the designated automated inventory email containing the chute list Excel attachment.
+Every hour, the flow scans incoming messages for the designated automated inventory email containing the SLA Details attachment.
 
 ### 2️⃣ Data Extraction
 
