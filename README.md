@@ -146,6 +146,11 @@ JSON Schema (parsing the returned string from the script)
     }
 }
 ```
+
+## Flow Screenshots
+
+![SLA Data](assets/sla-chute-flow-2-blurred.png)
+
 ## 🧑‍💼 Author
 
 Abraham Efraim
